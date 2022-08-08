@@ -9,19 +9,19 @@ resource "aws_instance" "my-machines" {
   instance_type = var.instance_type # 
 
   #subnet_id = "subnet-027ddfd1ac9b5daa1"
-  key_name = "KPLR"
+  key_name = "MULTIPLE"
 
   #user_data = "${file("startup.sh")}"
-  #root_block_device {
-    #volume_size = 30 # in GB <<----- I increased this!
-    #volume_type = "gp3"
-  #}
+  root_block_device {
+    volume_size = 30 # in GB <<----- I increased this!
+    volume_type = "gp3"
+  }
 
   connection {
     type = "ssh"
     user = "ec2-user"
     host = "${self.public_ip}"
-    private_key = "${file("KPLR.pem")}"
+    private_key = "${file("MULTIPLE.pem")}"
   }
 
   provisioner "file" {
@@ -40,7 +40,7 @@ resource "aws_instance" "my-machines" {
   tags = {
     # The count.index allows you to launch a resource 
     # starting with the distinct index number 0 and corresponding to this instance.
-    Name = "TRAINING-machine-${count.index}"
+    Name = "NAILAS-${count.index}"
   }
 
 }
