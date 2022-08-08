@@ -2,7 +2,7 @@
 
 resource "aws_instance" "my-machines" {
   # Creates x identical aws ec2 instances
-  count = 8
+  count = 1
   
   # All x instances will have the same ami and instance_type
   ami = lookup(var.ec2_ami,var.region) 
@@ -13,7 +13,7 @@ resource "aws_instance" "my-machines" {
 
   #user_data = "${file("startup.sh")}"
   root_block_device {
-    volume_size = 30 # in GB <<----- I increased this!
+    volume_size = 10 # in GB <<----- I increased this!
     volume_type = "gp3"
   }
 
