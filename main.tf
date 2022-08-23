@@ -39,10 +39,9 @@ resource "aws_instance" "my-test-machine" {
   tags = {
     # The count.index allows you to launch a resource 
     # starting with the distinct index number 0 and corresponding to this instance.
-    Name = "NAILAS-${count.index}"
+    Name = "TRAINING-${count.index}"
   }
   
-
 }
 
 resource "aws_eip" "elastic_ip" {
@@ -51,3 +50,5 @@ resource "aws_eip" "elastic_ip" {
   instance = aws_instance.my-test-machine[count.index].id
   vpc = true
   }
+
+}
