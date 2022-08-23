@@ -1,6 +1,6 @@
 
 resource "aws_security_group" "env_sg" {
-  name = “env-sec”
+  name = "env-secp"
   description = "Allow HTTP and SSH traffic via Terraform"
 
   ingress {
