@@ -9,6 +9,7 @@ resource "aws_instance" "my-test-machine" {
   instance_type = var.instance_type # 
   #subnet_id = "subnet-027ddfd1ac9b5daa1"
   key_name = "MULTIPLE"
+  vpc_security_group_ids = [aws_security_group.env_sg.id]
   #user_data = "${file("startup.sh")}"
 
   root_block_device {
