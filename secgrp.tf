@@ -23,3 +23,5 @@ resource "aws_security_group" "env_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
+  }
